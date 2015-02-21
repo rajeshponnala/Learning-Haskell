@@ -16,3 +16,12 @@ len xs = sum[1 | _ <- xs]
 removeNonUpperCase st = [ c | c <- st, c `elem` ['A'..'Z'] ]
 
 nestedListComprehension xxs = [[ x | x <- xs, even x ] | xs <- xxs]
+
+chain :: Integer -> [Integer]
+chain 1 = [1]
+chain n
+	| even n = n:chain( n `div` 2)
+	| odd  n = n: chain ( n * 3 +1)
+
+sum' :: (Num a) => [a] -> a
+sum' = foldl(+) 0
