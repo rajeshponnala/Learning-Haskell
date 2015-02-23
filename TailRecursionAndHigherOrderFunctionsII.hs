@@ -13,12 +13,12 @@ span' f xs =
       dropList = [ x | x <- xs , not $ f x  ]
   in  (takeList,dropList)
 
-removeDuplicatesFromSortedCollection :: (Eq a) => [a] -> [a]
-removeDuplicatesFromSortedCollection [] = []
-removeDuplicatesFromSortedCollection [x] = [x]
-removeDuplicatesFromSortedCollection (x:xs)
-     | x == head xs = removeDuplicatesFromSortedCollection xs
-     | otherwise = x:removeDuplicatesFromSortedCollection xs
+removeDuplicates :: (Eq a) => [a] -> [a]
+removeDuplicates [] = []
+removeDuplicates [x] = [x]
+removeDuplicates (x:xs)
+     | x == head xs = removeDuplicates xs
+     | otherwise = x:removeDuplicates  xs
 
 dropKthElement :: Int -> [a] -> [a]
 dropKthElement _ [] = []
