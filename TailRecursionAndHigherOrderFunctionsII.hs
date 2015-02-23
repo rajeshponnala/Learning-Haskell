@@ -7,7 +7,7 @@ nPrimes n =  take n $ filter isPrime  [2..]
 dupNTimes :: Int -> [a] -> [a]
 dupNTimes n xs = concat $ [ replicate n x | x <-xs]
 
-span' :: (Eq a,Ord a) => (a -> Bool) -> [a] -> ([a],[a])
+span' :: (Ord a) => (a -> Bool) -> [a] -> ([a],[a])
 span' f xs =
   let takeList = [ x | x <- xs , f x ]
       dropList = [ x | x <- xs , not $ f x  ]
