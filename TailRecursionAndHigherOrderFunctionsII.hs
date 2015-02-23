@@ -19,3 +19,11 @@ removeDuplicatesFromSortedCollection [x] = [x]
 removeDuplicatesFromSortedCollection (x:xs)
      | x == head xs = removeDuplicatesFromSortedCollection xs
      | otherwise = x:removeDuplicatesFromSortedCollection xs
+
+dropKthElement :: Int -> [a] -> [a]
+dropKthElement _ [] = []
+dropKthElement 0 xs = xs
+dropKthElement 1 (x:xs) = xs
+dropKthElement n (x:xs)
+     | n < 0 = error "invalid Position"
+     | otherwise = x:dropKthElement (n-1) xs
